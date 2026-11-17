@@ -94,7 +94,7 @@ Open [http://localhost:3000](http://localhost:3000) and upload a photo of a car 
 | `npm run dev` | Starts the dev server with Turbopack |
 | `npm run build` | Production build |
 | `npm run lint` | Runs ESLint |
-| `npm run typecheck` | Type-checks the project with `tsc` |
+| `npm run typecheck` | Generates Next.js route types, then type-checks with `tsc` |
 
 ## 🗂️ Project structure
 
