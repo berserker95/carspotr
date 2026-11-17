@@ -8,6 +8,7 @@ A car spotting app that identifies **make, model and generation** from a single 
 built with **Next.js 16** on a **serverless AWS** stack and **Amazon Bedrock** multimodal AI —
 with **privacy by design** from day one.
 
+[![CI](https://github.com/berserker95/carspotr/actions/workflows/ci.yml/badge.svg)](https://github.com/berserker95/carspotr/actions/workflows/ci.yml)
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
@@ -77,7 +78,7 @@ Licence plates and faces are personal data under the **GDPR**. carspotr treats t
 
 ## 🚀 Getting started
 
-**Prerequisites:** Node.js 20.9 or later.
+**Prerequisites:** Node.js 24 LTS (the same version used in CI).
 
 ```bash
 git clone https://github.com/berserker95/carspotr.git
@@ -93,6 +94,7 @@ Open [http://localhost:3000](http://localhost:3000) and upload a photo of a car 
 | `npm run dev` | Starts the dev server with Turbopack |
 | `npm run build` | Production build |
 | `npm run lint` | Runs ESLint |
+| `npm run typecheck` | Type-checks the project with `tsc` |
 
 ## 🗂️ Project structure
 
@@ -113,6 +115,7 @@ src/
 ## 🛣️ Roadmap
 
 - [x] **Phase 1** · Local MVP: upload, mock recognition, simulated plate blurring, EXIF stripping
+- [x] **CI** · GitHub Actions: lint, typecheck and build on every push and pull request; Dependabot updates
 - [ ] **Phase 2** · AWS free plan account, 1 USD budget alarm, least-privilege IAM
 - [ ] **Phase 3** · Real recognition with Amazon Bedrock, real plate and face detection
 - [ ] **Phase 4** · Infrastructure as code with AWS CDK: S3 presigned uploads, Lambda, DynamoDB
