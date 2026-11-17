@@ -9,6 +9,10 @@ updates:
     cooldown:
       default-days: 7
       semver-major-days: 14
+    ignore:
+      # Node types follow the runtime used in CI (Node 24), not the latest Node release.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
       minor-and-patch:
         update-types: [minor, patch]
