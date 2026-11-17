@@ -4,7 +4,16 @@ import type { RecognizeResponse } from "@/lib/types";
 const MAX_BYTES = 8 * 1024 * 1024;
 const ALLOWED_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 
+// Room for multipart boundaries and headers around the file.
+const MAX_REQUEST_BYTES = MAX_BYTES + 64 * 1024;
+
 export async function POST(request: Request) {
+  // Reject before parsing, so an oversized body is never buffered in memory.
+  const length = Number(request.headers.get("content-length"));
+  if (!length || length > MAX_REQUEST_BYTES) {
+    return Response.json({ error: "Photo larger than 8 MB" }, { status: 413 });
+  }
+
   const form = await request.formData();
   const file = form.get("photo");
 
